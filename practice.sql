@@ -72,6 +72,8 @@ txn_type_cd VARCHAR(3),
 amount DECIMAL(10,2),
 FOREIGN KEY (account_id) REFERENCES account(account_id)
 );
+
+-- Insert sample customers
 INSERT INTO customer (fname, lname, birth_date, address, city, state, country, postal_code)
 VALUES
 ('Michael', 'Maynard', '1986-11-01', '4939 Alex Landing', 'East Maryton', 'ID', 'UAE', '25141'),
@@ -87,12 +89,15 @@ VALUES
 ('Thomas', 'Watts', '2000-12-24', '5191 William Flats', 'Lake Benjaminburgh', 'TX', 'UAE', '11476'),
 ('Jessica', 'Lopez', '1982-01-30', '2626 Curtis Glen Apt. 219', 'Lake Sharonland', 'FL', 'UAE', '77513');
 
+
+-- Insert sample branch
 INSERT INTO branch (branch_id, name, address)
 VALUES 
   (1, 'Downtown', '123 Main St'),
   (2, 'Uptown', '456 Elm St'),
   (3, 'Suburb', '789 Maple Ave');
   
+-- Insert sample employee
 INSERT INTO employee (emp_id, fname, lname, start_date, end_date, superior_emp_id, dept_id, assigned_branch_id)
 VALUES
   (1, 'Alice', 'Smith', '2015-01-15', NULL, NULL, 1, 1),
@@ -100,6 +105,7 @@ VALUES
   (3, 'Carol', 'White', '2017-06-22', NULL, 1, 1, 2),
   (4, 'David', 'Brown', '2019-08-01', NULL, 3, 2, 2);
 
+-- Insert sample account
   INSERT INTO account (account_id, customer_id, open_date, balance, branch_id)
 VALUES
   (101, 1, '2022-01-01', 5000.00, 1),
@@ -107,7 +113,8 @@ VALUES
   (103, 3, '2022-03-20', 2300.75, 3),
   (104, 4, '2022-04-05', 890.00, 1),
   (105, 5, '2022-05-12', 300.00, 2);
-  
+
+-- Insert sample transaction
   INSERT INTO txn (txn_id, txn_date, account_id, txn_type_cd, amount)
 VALUES
   (1, '2022-02-01', 101, 'CDT', 500.00),
